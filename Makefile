@@ -19,12 +19,15 @@ LDFLAGS =
 EXEC = prog
 
 all :$(EXEC)
+	@echo -n "\e[31m"
 	@echo "***********************************"
+	@echo -n "\e[93m"
 	@echo "Makefile Configs:"
 	@echo "	Compiler	: " $(CC)
 	@echo "	Compiler Flags	: " $(CFLAGS)
 	@echo "	Linker Flags	: " $(LDFLAGS)
 	@echo "	Exe Name	: " $(EXEC)	
+	@echo -n "\e[31m"
 	@echo "***********************************"	
 
 $(EXEC): $(cpp_obj) $(c_obj)
@@ -34,8 +37,16 @@ clean:
 	@echo "Cleaning up..."	
 	rm -rf $(c_obj) $(cpp_obj) $(EXEC)
 	@echo "...done!"
+	
 
 cleanall:
 	@echo "Cleaning up..."	
 	rm -rf $(c_obj) $(cpp_obj) $(EXEC)
+	@echo "...done!"
+
+lsdir:
+	@echo "Listing all directories..."
+	ls -a
+	ls -a c_src/
+	ls -a cpp_src/
 	@echo "...done!"
