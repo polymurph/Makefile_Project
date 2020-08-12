@@ -3,8 +3,9 @@
 #	https://www.youtube.com/watch?v=GExnnTaBELk
 #	https://opensource.com/article/18/8/what-how-makefile
 #
-
-
+#
+#
+#
 
 cpp_src = $(wildcard cpp_src/*.cpp) $(wildcard *.cpp)  
 c_src = $(wildcard c_src/*.c) $(wildcart *.c)
@@ -27,12 +28,14 @@ all :$(EXEC)
 	@echo "***********************************"	
 
 $(EXEC): $(cpp_obj) $(c_obj)
-	$(CC) -o $@ $^ $(LDFLAGS) 
+	$(CC) -o $@ $^ $(LDFLAGS)	
  
 clean:
 	@echo "Cleaning up..."	
 	rm -rf $(c_obj) $(cpp_obj) $(EXEC)
+	@echo "...done!"
 
 cleanall:
 	@echo "Cleaning up..."	
 	rm -rf $(c_obj) $(cpp_obj) $(EXEC)
+	@echo "...done!"
